@@ -8,7 +8,7 @@ const app: Application = express();
 const allowedOrigins = ['http://localhost:5173', 'https://fullstack-2-8255d.web.app/', 'https://fullstack-2-8255d.firebaseapp.com/'];
 
 app.use(express.json());
-app.use(cors({ origin: allowedOrigins, credentials: true }));
+app.use(cors({ origin: "*", credentials: true }));
 
 app.use('/api', router)
 
