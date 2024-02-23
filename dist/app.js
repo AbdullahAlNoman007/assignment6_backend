@@ -11,7 +11,7 @@ const router_1 = __importDefault(require("./router"));
 const app = (0, express_1.default)();
 const allowedOrigins = ['http://localhost:5173', 'https://fullstack-2-8255d.web.app', 'https://fullstack-2-8255d.firebaseapp.com'];
 app.use(express_1.default.json());
-app.use((0, cors_1.default)({ origin: "https://fullstack-2-8255d.web.app", credentials: true }));
+app.use((0, cors_1.default)({ origin: allowedOrigins, credentials: true }));
 app.use('/api', router_1.default);
 app.get('/', (req, res) => {
     res.send("Welcome to Fullstack's Assignment 2 | Redux-2 ");
