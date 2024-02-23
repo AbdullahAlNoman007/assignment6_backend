@@ -1,0 +1,24 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.memberRoute = void 0;
+const express_1 = __importDefault(require("express"));
+const member_controller_1 = require("./member.controller");
+const auth_1 = __importDefault(require("../../middleware/auth"));
+const user_const_1 = require("../user/user.const");
+const route = express_1.default.Router();
+route.get('/getAllSuperAdmin', (0, auth_1.default)(user_const_1.USER_ROLE.superAdmin), member_controller_1.memberController.getAllSuperAdmin);
+route.get('/getAllManager', (0, auth_1.default)(user_const_1.USER_ROLE.superAdmin), member_controller_1.memberController.getAllManager);
+route.get('/getAllSeller', (0, auth_1.default)(user_const_1.USER_ROLE.superAdmin), member_controller_1.memberController.getAllSeller);
+route.get('/getSuperAdmin/:id', (0, auth_1.default)(user_const_1.USER_ROLE.superAdmin), member_controller_1.memberController.getASuperAdmin);
+route.get('/getManager/:id', (0, auth_1.default)(user_const_1.USER_ROLE.superAdmin), member_controller_1.memberController.getAManager);
+route.get('/getSeller/:id', (0, auth_1.default)(user_const_1.USER_ROLE.superAdmin), member_controller_1.memberController.getASeller);
+route.put('/updateSuperAdmin/:id', (0, auth_1.default)(user_const_1.USER_ROLE.superAdmin), member_controller_1.memberController.updateSuperAdmin);
+route.put('/updateManager/:id', (0, auth_1.default)(user_const_1.USER_ROLE.superAdmin), member_controller_1.memberController.updateManager);
+route.put('/updateSeller/:id', (0, auth_1.default)(user_const_1.USER_ROLE.superAdmin), member_controller_1.memberController.updateSeller);
+route.delete('/deleteSuperAdmin/:id', (0, auth_1.default)(user_const_1.USER_ROLE.superAdmin), member_controller_1.memberController.deleteSuperAdmin);
+route.delete('/deleteManager/:id', (0, auth_1.default)(user_const_1.USER_ROLE.superAdmin), member_controller_1.memberController.deleteManager);
+route.delete('/deleteSeller/:id', (0, auth_1.default)(user_const_1.USER_ROLE.superAdmin), member_controller_1.memberController.deleteSeller);
+exports.memberRoute = route;
